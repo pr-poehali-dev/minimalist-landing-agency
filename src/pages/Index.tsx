@@ -133,44 +133,48 @@ export default function Index() {
 
   return (
     <div className="min-h-screen">
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-b border-primary/10">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg">
                 <Icon name="Target" className="text-white" size={20} />
               </div>
-              <span className="text-xl font-bold font-heading">Marketing Pro</span>
+              <span className="text-xl font-bold font-heading bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Marketing Pro</span>
             </div>
             <nav className="hidden md:flex items-center gap-8">
-              <a href="#services" className="text-sm hover:text-primary transition-colors">Услуги</a>
-              <a href="#cases" className="text-sm hover:text-primary transition-colors">Кейсы</a>
-              <a href="#team" className="text-sm hover:text-primary transition-colors">Команда</a>
-              <a href="#advantages" className="text-sm hover:text-primary transition-colors">Преимущества</a>
-              <a href="#testimonials" className="text-sm hover:text-primary transition-colors">Отзывы</a>
-              <a href="#faq" className="text-sm hover:text-primary transition-colors">FAQ</a>
+              <a href="#services" className="text-sm hover:text-primary transition-colors font-medium">Услуги</a>
+              <a href="#cases" className="text-sm hover:text-primary transition-colors font-medium">Кейсы</a>
+              <a href="#team" className="text-sm hover:text-primary transition-colors font-medium">Команда</a>
+              <a href="#advantages" className="text-sm hover:text-primary transition-colors font-medium">Преимущества</a>
+              <a href="#testimonials" className="text-sm hover:text-primary transition-colors font-medium">Отзывы</a>
+              <a href="#faq" className="text-sm hover:text-primary transition-colors font-medium">FAQ</a>
               <a href="#contact">
-                <Button size="sm">Связаться</Button>
+                <Button size="sm" className="bg-gradient-to-r from-primary to-accent hover:opacity-90">Связаться</Button>
               </a>
             </nav>
           </div>
         </div>
       </header>
 
-      <section className="pt-32 pb-20 px-4">
-        <div className="container mx-auto max-w-6xl">
+      <section className="pt-32 pb-20 px-4 bg-gradient-to-br from-primary/5 via-accent/5 to-transparent relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent"></div>
+        <div className="container mx-auto max-w-6xl relative">
           <div className="text-center animate-fade-in">
-            <h1 className="text-5xl md:text-7xl font-bold font-heading mb-6 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+            <div className="inline-block px-4 py-2 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full mb-6 border border-primary/20">
+              <span className="text-sm font-semibold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">🚀 #1 Digital-агентство 2024</span>
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold font-heading mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent leading-tight">
               Маркетинг, который работает
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-foreground/70 mb-8 max-w-3xl mx-auto">
               Увеличиваем продажи и узнаваемость бренда с помощью digital-инструментов
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg px-8" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+              <Button size="lg" className="text-lg px-8 bg-gradient-to-r from-primary to-accent hover:opacity-90 shadow-lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                 Получить консультацию
               </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8" onClick={() => document.getElementById('cases')?.scrollIntoView({ behavior: 'smooth' })}>
+              <Button size="lg" variant="outline" className="text-lg px-8 border-2 border-primary/30 hover:bg-primary/5" onClick={() => document.getElementById('cases')?.scrollIntoView({ behavior: 'smooth' })}>
                 Наши кейсы
               </Button>
             </div>
@@ -178,17 +182,19 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="services" className="py-20 px-4 bg-secondary/30">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl md:text-5xl font-bold font-heading text-center mb-16">Наши услуги</h2>
+      <section id="services" className="py-20 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
+        <div className="container mx-auto max-w-6xl relative">
+          <h2 className="text-4xl md:text-5xl font-bold font-heading text-center mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Наши услуги</h2>
+          <p className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto">Комплексные решения для роста вашего бизнеса</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
+              <Card key={index} className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-scale-in border-2 hover:border-primary/30 group" style={{ animationDelay: `${index * 0.1}s` }}>
                 <CardContent className="p-6">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
-                    <Icon name={service.icon as any} className="text-primary" size={28} />
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                    <Icon name={service.icon as any} className="text-white" size={28} />
                   </div>
-                  <h3 className="text-xl font-semibold font-heading mb-3">{service.title}</h3>
+                  <h3 className="text-xl font-semibold font-heading mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">{service.description}</p>
                 </CardContent>
               </Card>
@@ -197,15 +203,16 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="cases" className="py-20 px-4">
+      <section id="cases" className="py-20 px-4 bg-gradient-to-br from-accent/5 via-transparent to-primary/5">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl md:text-5xl font-bold font-heading text-center mb-16">Наши кейсы</h2>
+          <h2 className="text-4xl md:text-5xl font-bold font-heading text-center mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Наши кейсы</h2>
+          <p className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto">Реальные результаты, которых мы достигли</p>
           <div className="grid md:grid-cols-3 gap-8">
             {cases.map((caseItem, index) => (
-              <Card key={index} className="border-2 hover:border-primary transition-all duration-300">
+              <Card key={index} className="border-2 hover:border-accent transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 bg-gradient-to-br from-white to-primary/5">
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-semibold font-heading mb-4">{caseItem.title}</h3>
-                  <div className="text-3xl font-bold text-primary mb-6">{caseItem.result}</div>
+                  <div className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-6">{caseItem.result}</div>
                   <div className="space-y-2">
                     {caseItem.metrics.map((metric, i) => (
                       <div key={i} className="flex items-center gap-2">
@@ -221,19 +228,20 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="team" className="py-20 px-4 bg-secondary/30">
+      <section id="team" className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl md:text-5xl font-bold font-heading text-center mb-16">Наша команда</h2>
+          <h2 className="text-4xl md:text-5xl font-bold font-heading text-center mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Наша команда</h2>
+          <p className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto">Профессионалы с многолетним опытом</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
+              <Card key={index} className="text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 hover:border-primary/30">
                 <CardContent className="p-6">
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-blue-600 mx-auto mb-4 flex items-center justify-center">
+                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary via-accent to-primary mx-auto mb-4 flex items-center justify-center shadow-lg">
                     <Icon name="User" size={40} className="text-white" />
                   </div>
                   <h3 className="text-lg font-semibold font-heading mb-1">{member.name}</h3>
                   <p className="text-sm text-muted-foreground mb-2">{member.role}</p>
-                  <p className="text-xs text-primary font-medium">Опыт: {member.experience}</p>
+                  <p className="text-xs font-medium bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Опыт: {member.experience}</p>
                 </CardContent>
               </Card>
             ))}
@@ -241,13 +249,14 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="advantages" className="py-20 px-4">
+      <section id="advantages" className="py-20 px-4 bg-gradient-to-br from-primary/5 via-transparent to-accent/5">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl md:text-5xl font-bold font-heading text-center mb-16">Почему мы</h2>
+          <h2 className="text-4xl md:text-5xl font-bold font-heading text-center mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Почему мы</h2>
+          <p className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto">4 причины работать с нами</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {advantages.map((advantage, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 rounded-full bg-primary mx-auto mb-4 flex items-center justify-center">
+              <div key={index} className="text-center group">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent mx-auto mb-4 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                   <Icon name={advantage.icon as any} size={32} className="text-white" />
                 </div>
                 <h3 className="text-xl font-semibold font-heading mb-2">{advantage.title}</h3>
@@ -258,16 +267,17 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="testimonials" className="py-20 px-4 bg-secondary/30">
+      <section id="testimonials" className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl md:text-5xl font-bold font-heading text-center mb-16">Отзывы клиентов</h2>
+          <h2 className="text-4xl md:text-5xl font-bold font-heading text-center mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Отзывы клиентов</h2>
+          <p className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto">Что говорят о нас наши клиенты</p>
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
+              <Card key={index} className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 hover:border-accent/30">
                 <CardContent className="p-6">
                   <div className="flex gap-1 mb-4">
                     {[...Array(5)].map((_, i) => (
-                      <Icon key={i} name="Star" size={18} className="text-yellow-400 fill-yellow-400" />
+                      <Icon key={i} name="Star" size={18} className="text-accent fill-accent" />
                     ))}
                   </div>
                   <p className="text-muted-foreground mb-6 italic">"{testimonial.text}"</p>
@@ -282,13 +292,14 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="faq" className="py-20 px-4">
+      <section id="faq" className="py-20 px-4 bg-gradient-to-br from-accent/5 via-transparent to-primary/5">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-4xl md:text-5xl font-bold font-heading text-center mb-16">Частые вопросы</h2>
+          <h2 className="text-4xl md:text-5xl font-bold font-heading text-center mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Частые вопросы</h2>
+          <p className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto">Ответы на популярные вопросы</p>
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="border rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold hover:no-underline">
+              <AccordionItem key={index} value={`item-${index}`} className="border rounded-lg px-6 bg-white/50 backdrop-blur-sm">
+                <AccordionTrigger className="text-left font-semibold hover:no-underline hover:text-primary">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
@@ -300,12 +311,12 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="contact" className="py-20 px-4 bg-secondary/30">
+      <section id="contact" className="py-20 px-4 bg-gradient-to-br from-primary/10 via-accent/10 to-primary/10">
         <div className="container mx-auto max-w-2xl">
-          <h2 className="text-4xl md:text-5xl font-bold font-heading text-center mb-6">Свяжитесь с нами</h2>
-          <p className="text-center text-muted-foreground mb-12">Оставьте заявку, и мы свяжемся с вами в течение часа</p>
-          <Card>
-            <CardContent className="p-8">
+          <h2 className="text-4xl md:text-5xl font-bold font-heading text-center mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Свяжитесь с нами</h2>
+          <p className="text-center text-foreground/70 mb-12">Оставьте заявку, и мы свяжемся с вами в течение часа</p>
+          <Card className="border-2 border-primary/20 shadow-2xl">
+            <CardContent className="p-8 bg-gradient-to-br from-white to-primary/5">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label className="text-sm font-medium mb-2 block">Ваше имя</label>
@@ -346,7 +357,7 @@ export default function Index() {
                     required
                   />
                 </div>
-                <Button type="submit" className="w-full" size="lg">
+                <Button type="submit" className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 shadow-lg" size="lg">
                   Отправить заявку
                 </Button>
               </form>
@@ -355,24 +366,24 @@ export default function Index() {
         </div>
       </section>
 
-      <footer className="py-12 px-4 border-t">
+      <footer className="py-12 px-4 border-t bg-gradient-to-br from-primary/5 to-accent/5">
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg">
                   <Icon name="Target" className="text-white" size={20} />
                 </div>
-                <span className="text-xl font-bold font-heading">Marketing Pro</span>
+                <span className="text-xl font-bold font-heading bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Marketing Pro</span>
               </div>
               <p className="text-sm text-muted-foreground">Маркетинговое агентство полного цикла</p>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Услуги</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>Таргетированная реклама</li>
-                <li>SEO продвижение</li>
-                <li>Контекстная реклама</li>
+                <li className="hover:text-primary transition-colors cursor-pointer">Таргетированная реклама</li>
+                <li className="hover:text-primary transition-colors cursor-pointer">SEO продвижение</li>
+                <li className="hover:text-primary transition-colors cursor-pointer">Контекстная реклама</li>
               </ul>
             </div>
             <div>
@@ -386,11 +397,11 @@ export default function Index() {
             <div>
               <h4 className="font-semibold mb-4">Контакты</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="flex items-center gap-2">
+                <li className="flex items-center gap-2 hover:text-primary transition-colors">
                   <Icon name="Mail" size={16} />
                   <span>hello@marketingpro.ru</span>
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="flex items-center gap-2 hover:text-primary transition-colors">
                   <Icon name="Phone" size={16} />
                   <span>+7 (495) 123-45-67</span>
                 </li>
